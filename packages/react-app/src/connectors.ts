@@ -15,8 +15,8 @@ require('dotenv').config();
 
 const POLLING_INTERVAL = 12000
 const RPC_URLS: { [chainId: number]: string } = {
-  1: process.env.REACT_APP_RPC_URL_1 as string,
-  3: process.env.REACT_APP_RPC_URL_3 as string
+  1: "https://mainnet.infura.io/v3/4ff53a5254144d988a8318210b56f47a",
+  3: "https://ropsten.infura.io/v3/4ff53a5254144d988a8318210b56f47a"
 }
 
 export const injected = new InjectedConnector({ supportedChainIds: [1] })
@@ -39,6 +39,8 @@ export const walletconnect = new WalletConnectConnector({
 //   appName: 'web3-react example'
 // })
 //
+
+console.log({ 1: RPC_URLS[1] })
 export const ledger = new LedgerConnector({ chainId: 1, url: RPC_URLS[1], pollingInterval: POLLING_INTERVAL })
 
 console.log(RPC_URLS[1]);
